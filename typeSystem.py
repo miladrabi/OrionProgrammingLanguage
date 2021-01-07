@@ -313,6 +313,10 @@ class BuiltInFunction(BaseFunction):
         return RTResult().success(result)
     execute_range.arg_names = ['end']
 
+    def execute_orionSignature(self, exec_ctx):
+        return Token.cons.SIGNATURE
+    execute_orionSignature.arg_names = []
+
     def execute_len(self, exec_ctx):
         arg = exec_ctx.symbolTable.get('argument').type
         return RTResult().success(Number(arg.length))
@@ -422,18 +426,19 @@ class BuiltInFunction(BaseFunction):
     execute_prompt.arg_names = ['message']
 
 
-BuiltInFunction.input       = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("input")).copy()
-BuiltInFunction.range       = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("range")).copy()
-BuiltInFunction.len         = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("len")).copy()
-BuiltInFunction.is_number   = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("is_number")).copy()
-BuiltInFunction.is_string   = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("is_string")).copy()
-BuiltInFunction.is_list     = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("is_list")).copy()
-BuiltInFunction.to_number   = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("to_number")).copy()
-BuiltInFunction.string      = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("string")).copy()
-BuiltInFunction.list        = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("list")).copy()
-BuiltInFunction.type        = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("type")).copy()
-BuiltInFunction.prompt      = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("prompt")).copy()
-BuiltInFunction.random      = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("random")).copy()
+BuiltInFunction.input          = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("input")).copy()
+BuiltInFunction.range          = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("range")).copy()
+BuiltInFunction.len            = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("len")).copy()
+BuiltInFunction.is_number      = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("is_number")).copy()
+BuiltInFunction.is_string      = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("is_string")).copy()
+BuiltInFunction.is_list        = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("is_list")).copy()
+BuiltInFunction.to_number      = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("to_number")).copy()
+BuiltInFunction.string         = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("string")).copy()
+BuiltInFunction.list           = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("list")).copy()
+BuiltInFunction.type           = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("type")).copy()
+BuiltInFunction.prompt         = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("prompt")).copy()
+BuiltInFunction.random         = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("random")).copy()
+BuiltInFunction.orionSignature = SymbolTable.Symbol(Token.cons.FUNCTION, BuiltInFunction("orionSignature")).copy()
 
 GLOBAL_SYMBOL_TABLE.define("input", BuiltInFunction.input)
 GLOBAL_SYMBOL_TABLE.define("range", BuiltInFunction.range)
@@ -447,6 +452,7 @@ GLOBAL_SYMBOL_TABLE.define("list", BuiltInFunction.list)
 GLOBAL_SYMBOL_TABLE.define("type", BuiltInFunction.type)
 GLOBAL_SYMBOL_TABLE.define("prompt", BuiltInFunction.prompt)
 GLOBAL_SYMBOL_TABLE.define("random", BuiltInFunction.random)
+GLOBAL_SYMBOL_TABLE.define("orionSignature", BuiltInFunction.orionSignature)
 
 MATH_PI = SymbolTable.Symbol(Token.cons.CONST, Number(math.pi)).copy()
 GLOBAL_SYMBOL_TABLE.define("MATH_PI", MATH_PI)
