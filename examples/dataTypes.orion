@@ -1,0 +1,76 @@
+/*
+    - In this example we are gonna explore Orion Data Types
+
+    - Orion Type System(data types) is so simple and contains only 3 distinct types:
+        - Number: Includes all Types of Numbers (Integers, Floating Points, Binary, Hexadecimal, Scientific,...)
+        
+        - String: Includes a String With additional Capabalities
+
+        - List: a simple, dynamic, and powerful data type
+
+*/
+
+// Lets explore Number type
+// Defining multiple variables at once
+let number, binary, scientific, hex = 25.2, 0b100, 6.75e-3, 0x23;
+
+puts number, ' ', binary, ' ', scientific, ' ', hex;
+
+// you can also define multiple variables with the same value in a simpler way
+let num1, num2, num3 = 0;
+puts num1, ' ', num2, ' ', num3;
+
+// a more interesting definition would be a mixture of both forms above.
+let init, player1, player2, player3 = 0, 1; // output: init:0, player1-3 = 1
+
+// Now let's explore String type
+let firstName = 'Milad';
+let lastName  = "Rabizadeh";
+
+// concatenating two or more strings using '..' (concatenation operator)
+// or using old-fashion '+' operator
+let fullName = firstName..' '..lastName;
+puts fullName;
+
+// Orion also allows you to extend a string by itself using '*' operator
+puts ':) ' * 5;
+
+// You can also remove a string from another string
+puts "Milad" - 'il'; // output: 'Mad'
+
+// The last type is List
+// Creating an empty and a nonempty list
+let empty, nonEmpty = [], [1,2,3];
+puts empty;
+puts nonEmpty;
+
+// same as String type, you can concatenate two or more lists using '..'
+let lst1 = nonEmpty..[4,5];
+puts lst1;
+
+// Orion lists are a little different in terms of addition and subtraction
+// if you add a number to a list, it will be added to all it's members
+puts lst1 + 2; // output: [3,4,5,6,7]
+
+// so what if you want to add different values to different element in the list?
+// Simple, just create a list with those values and add it to the first list
+// (remember, both lists should be of same length otherwise there will be error)
+puts lst1 + [2,-1,5,22,1]; // output: [3,1,8,26,6]
+
+// Same rule for subtracting two lists
+puts lst1 - [1,2,3,0,0]; // output: [0,0,0,4,5]
+
+// As mentioned above lists are dynamic.
+let john = ["John", "Doe", 23, "Designer", "Washington DC", 1.2e5];
+puts john;
+
+// Orion lists and strings are also subcriptable
+puts lst1[2], fullName[0];
+
+// You can get the length of any type with the '#' operator
+// For numbers, it returns number of digits
+puts #lst1;          // output: 5
+puts #fullName;     // output: 15
+puts #232.564;      // output: 6
+
+// That's all for Orion Type System. Pretty easy, right?

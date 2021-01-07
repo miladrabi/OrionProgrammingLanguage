@@ -1,0 +1,19 @@
+/*
+    -This is a multiline Comment.
+
+    -You can this kind of comment to
+     comment out a section of your code.
+
+    -This is a simple HELLO WORLD program.
+
+    -For a little surprise you can check out 'OrionSaysHello.orion' :)
+
+*/
+
+// This program prints 'Hello World!' to the screen.
+// By the way, This is a single line comment.
+// Every statement in Orion ends with a SEMICOLON.
+
+puts "Hello World!";
+
+// End of the program

@@ -1,0 +1,34 @@
+/*
+    - Functions are declared using the 'func' keyword followed by its arguments.
+    - The function body must be inside curly braces
+    - for returning from a function simply use 'ret' keyword
+    - You can use a function and then define it
+    - Orion also Supports Recursive functions. Ain't that cool :)
+*/
+
+// A simple recursive factorial function
+
+func factorial(number) {
+    if(number == 0) {
+        ret 1;
+    }else {
+        ret number * factorial(number - 1);
+    }
+}
+
+/*
+    - Declaring a variable is so simple: just use 'let' keyword (Don't forget ';' at the end)
+    - you can even use a variable and then define it. What's better than that?
+      (But you MUST define it somewhere in your code otherwise it's gonna throw an error)
+    
+    - There are so much more to variables but we just stick to the formalities for now :)
+
+*/
+
+let number = 6;
+
+// As we saw in helloWorld.orion, we can use 'puts' to print something to the screen.
+
+puts factorial(number);
+
+// Go on. Play with it. but don't break it :)

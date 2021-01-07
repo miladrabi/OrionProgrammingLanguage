@@ -1,0 +1,27 @@
+/*
+
+    - The game of guessing a number chosen by computer between 1 and 100
+
+*/
+
+let number, guess, guessCount = random(100), NULL, 4;
+
+// Functions have access to upper level variables and functions
+
+let win = inline(x) -> x == number;
+
+while(!win(guess) && guessCount >= 0){
+    puts "you have " + guessCount + " chance(s)";
+    guess = to_number(prompt("Enter your guess: "));
+    if(guess > number) {
+        puts "You guessed higher. Try again.";
+    }elif(guess < number) {
+        puts "You guessed lower. Try again.";
+    }
+    guessCount--;
+}
+if(win(guess)) {
+    puts "You guessed correctly :)";
+}else {
+    puts "You lost :( The number was " + number;
+}

@@ -1,0 +1,41 @@
+/*
+
+    - This is the famous FIZZBUZZ program in Orion
+
+    - The program replace any number divisible by three with the word "fizz",
+      and any number divisible by five with the word "buzz". If the number is divisible by fifteen,
+      it'll replace it with the word "fizzbuzz".
+    
+    - The program usually operates on numbers from 1 to 100.
+    
+    - You are going to be introduced to Orion's inline functions and how to use them :)
+    
+    - You'll learn to write this program using inline functions
+*/
+
+// Inline functions are one of the fascinating features of Orion.
+// You can define inline functions just like you did with variables.
+// You only have to use 'inline' keyword followed by arguments followed by '->'(arrow sign)
+// Do remember that inline functions are single line and single statement functions.
+// Inline functions also don't use 'ret' for returning in terms of simplicity.
+// lets build one!
+
+let fizz = inline(x) -> x % 3 == 0;
+
+// Simple, isn't it?
+
+let buzz = inline(x) -> x % 5 == 0;
+
+for(let number : range(100)) {
+    if(fizz(number+1) && buzz(number+1)) {
+        puts "fizzbuzz";
+    }elif(fizz(number + 1)) {
+        puts "fizz";
+    }elif(buzz(number + 1)) {
+        puts "buzz";
+    }else {
+        puts number + 1;
+    }
+}
+
+// They give you more power while you're programming

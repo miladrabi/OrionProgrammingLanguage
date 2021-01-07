@@ -1,0 +1,28 @@
+/*
+    - So far we learned to define functions and variables and print them to screen.
+    - Now it's time for built-in funtions
+
+*/
+
+// prompt(msg) prints 'msg' the the screen and then recives an input
+// to_number(str) converts 'str' to a number(if the string represents an integer,
+// the number is also an integer. and if the string represents a floating point number,
+// then the number is of type float.)
+
+number = to_number(prompt("Enter a number to get calculate it's factorial: "));
+
+// In Orion, you can convert numbers and lists to strings easily by using '+' operator. More on this later.
+// Orion 'String' can be represented by either '' or ""
+
+puts "The factorial of " + number + ' is ' + factorial(number);
+
+// Notice the declaration and definition of the function and variable at the end of the code.
+func factorial(number) {
+    if(number == 0) {
+        ret 1;
+    }else {
+        ret number * factorial(number - 1);
+    }
+}
+
+let number;

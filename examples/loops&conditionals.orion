@@ -1,0 +1,45 @@
+/*
+    - In this file you learn Orion loops and conditional
+    - There are two types of loops and one conditional statement available in Orion:
+        - For loop
+        - While lopp
+        -if/elif/else statement
+*/
+
+// Let's have a look
+// The code below generates list of numbers from 1 to 10
+let result, count = [], 0;
+while(count < 10) {
+    count++;
+    result = result..[count];
+}
+puts result;
+
+// Oh look, Orion also supports '++' and '--' operators (Only as a statement not an expression)
+
+// Now for loop
+// Orion lets you generate a semi-open list from 0 to a arbitrary number and loop on it.
+// Or you can loop over a list or a string as well.
+// Here you'll see both.
+let fullName = "Milad ".."Rabizadeh";
+for(let char : fullName) {
+    puts char;
+}
+
+// Iterating over a range starting from 0 via range() function
+
+for(let number : range(10)) {
+    puts number + 1;
+}
+
+// Lastly, if statement
+let number = 27;
+if(number >= 20 && number <= 25) {
+    puts "The number is in the first half of 20-30";
+}elif (number > 25 && number <= 30) {
+    puts "The number is in the second half of 20-30";
+}else {
+    puts "your number is not easy to guess!";
+}
+
+// That's all you need to know about Orion Loops and Conditional statement
