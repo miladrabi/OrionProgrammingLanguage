@@ -1,0 +1,6 @@
+/*
+    - This files renders Orion's special signature
+    - It's prefered to run this file on full screen.
+*/
+
+puts orionSignature();
