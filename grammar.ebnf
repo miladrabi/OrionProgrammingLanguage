@@ -1,0 +1,74 @@
+program            : statement_list
+
+statement_list     : statements
+
+statements         : simple_stmt SEMICOLON
+                   | compound_stmt
+
+simple_stmt        : varDecl_stmt
+                   | put_stmt
+                   | return_stmt
+
+
+compound_stmt      : if_stmt
+                   | for_stmt
+                   | while_stmt
+                   | func_stmt
+
+
+varDecl_stmt       : LET variable (COMMA variable)* (ASSIGN expr (COMMA expr)*)?
+                   | CONST variable (COMMA variable)* ASSIGN expr (COMMA expr)*
+
+
+put_stmt           : PUTS expr (COMMA expr)*
+
+
+return_stmt        : RET expr
+
+if_stmt            : IF "(" expr ")" "{" block "}"
+
+for_stmt           : FOR "(" LET variable ":" (variable|FUNCTION:RANGE) ")" "{" block "}"
+
+while_stmt         : WHILE "(" expr ")" "{" block "}"
+
+func_stmt          : FUNC "(" (variable (COMMA variable)* )* ")" "{" function_block "}"
+
+
+block              : statements
+
+
+function_block     : statements
+
+
+
+variable           : ID
+
+
+expr               : comp-expr (OR comp-expr)*
+
+and-expr           : comp-expr (AND comp-expr)*
+
+comp-expr          : arith-expr (binary_operation arith-expr)*
+
+arith-expr         : term ((PLUS|MINUS|CONCAT) term)*
+
+term               : factor ((MUL|DIV|MOD) factor)*
+
+factor             :(PLUS|MINUS) factor
+                   |NOT factor
+                   |HASH factor
+                   |INT
+                   |FLOAT
+                   |SCINUM
+                   |HEXNUM
+                   |OCTNUM
+                   |BINNUM
+                   | "(" expr ")"
+                   |variable
+
+binary_operation   :LT
+                   |GT
+                   |EQ
+                   |NEQ
+                   |LTE
+                   |GTE 
